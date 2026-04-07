@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PomoCruv - Timer Pomodoro Elegante</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+  </head>
+  <body class="theme-focus">
+    <div id="app">
+      <header>
+        <div class="header-content">
+          <div class="logo">
+            <i data-lucide="check-circle"></i>
+            <span>PomoCruv</span>
+          </div>
+          <button id="settings-btn" class="icon-btn">
+            <i data-lucide="settings"></i>
+          </button>
+        </div>
+      </header>
+
+      <main>
+        <div class="timer-container glass">
+          <div class="mode-selector">
+            <button class="mode-btn active" data-mode="focus">Foco</button>
+            <button class="mode-btn" data-mode="short">Pausa Curta</button>
+            <button class="mode-btn" data-mode="long">Pausa Longa</button>
+          </div>
+
+          <div class="timer-display">
+            <span id="minutes">25</span>:<span id="seconds">00</span>
+          </div>
+
+          <div class="timer-controls">
+            <button id="main-btn" class="main-btn">INICIAR</button>
+            <button id="reset-btn" class="icon-btn reset-btn">
+              <i data-lucide="rotate-ccw"></i>
+            </button>
+          </div>
+        </div>
+
+        <section class="tasks-section">
+          <div class="tasks-header">
+            <h2>Tarefas</h2>
+            <button id="add-task-btn" class="icon-btn">
+              <i data-lucide="plus"></i>
+            </button>
+          </div>
+          <div id="task-list" class="task-list">
+            <!-- Tasks will be injected here -->
+          </div>
+        </section>
+      </main>
+
+      <!-- Settings Modal -->
+      <div id="settings-modal" class="modal hidden">
+        <div class="modal-content glass">
+          <div class="modal-header">
+            <h3>Configurações</h3>
+            <button id="close-settings" class="icon-btn">
+              <i data-lucide="x"></i>
+            </button>
+          </div>
+          <div class="settings-group">
+            <label>Timer (minutos)</label>
+            <div class="timer-inputs">
+              <div class="input-item">
+                <span>Foco</span>
+                <input type="number" id="focus-time" value="25">
+              </div>
+              <div class="input-item">
+                <span>Pausa Curta</span>
+                <input type="number" id="short-time" value="5">
+              </div>
+              <div class="input-item">
+                <span>Pausa Longa</span>
+                <input type="number" id="long-time" value="15">
+              </div>
+            </div>
+          </div>
+          <div class="settings-group toggle-group">
+            <label>Som do Alarme</label>
+            <button id="sound-toggle" class="toggle-btn on"></button>
+          </div>
+        </div>
+      </div>
+      <!-- Task Modal -->
+      <div id="task-modal" class="modal hidden">
+        <div class="modal-content glass">
+          <div class="modal-header">
+            <h3>Adicionar Nova Tarefa</h3>
+            <button id="close-task-modal" class="icon-btn">
+              <i data-lucide="x"></i>
+            </button>
+          </div>
+          <div class="settings-group">
+            <input type="text" id="new-task-input" placeholder="Em que você está trabalhando?" class="text-input" autofocus>
+            
+            <div class="est-pomodoros">
+              <label>Quantos Pomodoros?</label>
+              <div class="est-controls">
+                <input type="number" id="est-amount" value="1" min="1">
+                <button id="est-up" class="icon-btn small"><i data-lucide="chevron-up"></i></button>
+                <button id="est-down" class="icon-btn small"><i data-lucide="chevron-down"></i></button>
+              </div>
+            </div>
+
+            <div class="modal-footer">
+              <button id="close-task-modal-alt" class="text-btn">Cancelar</button>
+              <button id="save-task" class="main-btn small">Salvar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script type="module" src="/main.js"></script>
+    <script>
+      lucide.createIcons();
+    </script>
+  </body>
+</html>
