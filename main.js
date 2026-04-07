@@ -1,4 +1,4 @@
-import './style.css'
+// PomoCruv - JS do Timer e Tarefas
 
 // State
 let timeLeft = 25 * 60;

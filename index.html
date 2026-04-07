@@ -2,12 +2,13 @@
 <html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <link rel="icon" type="image/svg+xml" href="vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>PomoCruv - Timer Pomodoro Elegante</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
     <script src="https://unpkg.com/lucide@latest"></script>
   </head>
   <body class="theme-focus">
@@ -53,6 +54,37 @@
           </div>
           <div id="task-list" class="task-list">
             <!-- Tasks will be injected here -->
+          </div>
+        </section>
+
+        <section class="info-section glass">
+          <div class="info-header">
+            <h2><i data-lucide="help-circle"></i> O que é a Técnica Pomodoro?</h2>
+          </div>
+          <div class="info-content">
+            <p>A técnica Pomodoro é um método de gerenciamento de tempo que utiliza um cronômetro para dividir o trabalho em intervalos de 25 minutos, chamados de "pomodoros", seguidos por pausas curtas.</p>
+            <div class="info-steps">
+              <div class="step">
+                <span class="step-number">1</span>
+                <p>Escolha uma tarefa importante.</p>
+              </div>
+              <div class="step">
+                <span class="step-number">2</span>
+                <p>Mantenha foco total por 25 minutos.</p>
+              </div>
+              <div class="step">
+                <span class="step-number">3</span>
+                <p>Faça uma pausa de 5 minutos para descansar.</p>
+              </div>
+              <div class="step">
+                <span class="step-number">4</span>
+                <p>Repita o ciclo 4 vezes.</p>
+              </div>
+              <div class="step">
+                <span class="step-number">5</span>
+                <p>Faça uma pausa maior (15-30 min) para recarregar.</p>
+              </div>
+            </div>
           </div>
         </section>
       </main>
@@ -118,7 +150,7 @@
         </div>
       </div>
     </div>
-    <script type="module" src="/main.js"></script>
+    <script type="module" src="main.js"></script>
     <script>
       lucide.createIcons();
     </script>
