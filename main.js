@@ -156,6 +156,12 @@ function toggleTimer() {
 
 function startTimer() {
   if (isRunning) return;
+  
+  if (timeLeft <= 0) {
+    timeLeft = settings[currentMode] * 60;
+    updateDisplay();
+  }
+
   isRunning = true;
   app.classList.add('timer-running');
   mainBtn.textContent = 'PAUSAR';
@@ -176,7 +182,7 @@ function pauseTimer() {
   isRunning = false;
   app.classList.remove('timer-running');
   clearInterval(timerId);
-  mainBtn.textContent = 'INICIAR';
+  mainBtn.textContent = 'CONTINUAR';
   mainBtn.classList.remove('active');
 }
 
@@ -184,6 +190,7 @@ function resetTimer() {
   pauseTimer();
   timeLeft = settings[currentMode] * 60;
   updateDisplay();
+  mainBtn.textContent = 'INICIAR';
 }
 
 function switchMode(mode) {
@@ -197,12 +204,14 @@ function switchMode(mode) {
   body.className = `theme-${mode}`;
   timeLeft = settings[mode] * 60;
   updateDisplay();
+  mainBtn.textContent = 'INICIAR';
 }
 
 function timerFinished() {
   isRunning = false;
   app.classList.remove('timer-running');
-  mainBtn.textContent = 'INICIAR';
+  mainBtn.textContent = 'RECOMEÇAR';
+  mainBtn.classList.remove('active');
   
   if (settings.sound) {
     playNotification();
@@ -348,6 +357,7 @@ function saveSettings() {
   if (!isRunning) {
     timeLeft = settings[currentMode] * 60;
     updateDisplay();
+    mainBtn.textContent = 'INICIAR';
   }
 }
 
