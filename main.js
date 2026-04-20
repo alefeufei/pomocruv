@@ -133,7 +133,9 @@ function setupEventListeners() {
   window.addEventListener('keydown', (e) => {
     if (e.code === 'Space' && !taskModal.classList.contains('hidden') === false && document.activeElement.tagName !== 'INPUT') {
       e.preventDefault();
-      toggleTimer();
+      if (!mainBtn.disabled) {
+        toggleTimer();
+      }
     }
   });
 }
@@ -191,6 +193,7 @@ function resetTimer() {
   timeLeft = settings[currentMode] * 60;
   updateDisplay();
   mainBtn.textContent = 'INICIAR';
+  mainBtn.disabled = false;
 }
 
 function switchMode(mode) {
@@ -205,6 +208,7 @@ function switchMode(mode) {
   timeLeft = settings[mode] * 60;
   updateDisplay();
   mainBtn.textContent = 'INICIAR';
+  mainBtn.disabled = false;
 }
 
 function timerFinished() {
@@ -212,6 +216,7 @@ function timerFinished() {
   app.classList.remove('timer-running');
   mainBtn.textContent = 'RECOMEÇAR';
   mainBtn.classList.remove('active');
+  mainBtn.disabled = true;
   
   if (settings.sound) {
     playNotification();
@@ -358,6 +363,7 @@ function saveSettings() {
     timeLeft = settings[currentMode] * 60;
     updateDisplay();
     mainBtn.textContent = 'INICIAR';
+    mainBtn.disabled = false;
   }
 }
 

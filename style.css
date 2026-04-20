@@ -186,9 +186,15 @@ main {
   font-size: 1.1rem;
 }
 
-.main-btn:active {
+.main-btn:active:not(:disabled) {
   transform: translateY(4px);
   box-shadow: 0 2px 0 #ddd;
+}
+
+.main-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  box-shadow: 0 6px 0 #ddd;
 }
 
 .tasks-section {
